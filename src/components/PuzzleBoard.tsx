@@ -6,10 +6,11 @@ import styles from '../styles/styles';
 
 interface PuzzleBoardProps {
   board: number[];
+  imageUri: string | null; // Ajout de l'URI de l'image
   onMove: (newBoard: number[]) => void;
 }
 
-const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ board, onMove }) => {
+const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ board, imageUri, onMove }) => {
   const GRID_SIZE = 3;
 
   const handleTilePress = (index: number) => {
@@ -26,6 +27,7 @@ const PuzzleBoard: React.FC<PuzzleBoardProps> = ({ board, onMove }) => {
           key={index}
           tile={tile}
           index={index}
+          imageUri={imageUri}
           onPress={() => handleTilePress(index)}
         />
       ))}
