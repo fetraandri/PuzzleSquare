@@ -35,5 +35,10 @@ export const shuffleBoard = (board: number[]): number[] => {
   };
   
   export const checkWin = (currentBoard: number[], winningBoard: number[]): boolean => {
-    return currentBoard.join('') === winningBoard.join('');
+    for (let i = 0; i < 8; i++) {
+      if (currentBoard[i] !== winningBoard[i]) {
+        return false;
+      }
+    }
+    return true;
   };
